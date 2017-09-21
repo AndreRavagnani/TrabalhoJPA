@@ -1,13 +1,37 @@
 package br.edu.uni7.persistence;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "TBL_ITENS_AVALIACAO")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "ST_TIPO_ITEM_AVALIACAO")
 public abstract class ItemAvaliacao {
-	
+
+	@Id
+	@Column(name = "PK_ITEM_AVAL")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@NotNull
+	@Size(min = 1, max = 500)
+	@Column(name = "NM_COMENTARIO")
 	private String comentario;
-	
+
+	@NotNull
+	@Column(name = "ST_STATUS")
 	private Status status;
-	
+
 	public Long getId() {
 		return id;
 	}

@@ -1,15 +1,40 @@
 package br.edu.uni7.persistence;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "TBL_PRODUTOS")
 public class Produto {
 
+	@Id
+	@Column(name = "PK_PROD")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@Column(name = "NM_NOME")
 	private String nome;
-	
+
+	@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "FK_DEP")
 	private Departamento departamento;
-	
+
+	@NotNull
+	@OneToOne
+	@JoinColumn(name = "FK_USUARIO")
 	private Usuario responsavel;
-	
+
+	@Column(name = "ST_SITUACAO")
 	private Situacao situacao;
 
 	public Long getId() {
@@ -47,11 +72,11 @@ public class Produto {
 	public Usuario getResponsavel() {
 		return responsavel;
 	}
-	
+
 	public void setResponsavel(Usuario responsavel) {
 		this.responsavel = responsavel;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
