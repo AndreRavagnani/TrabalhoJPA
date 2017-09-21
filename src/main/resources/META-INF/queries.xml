@@ -22,10 +22,11 @@
 	</named-query>
 
 	<!-- Nome da Query: Produto.qtdeDebitosTecnicos Parametro da query: idProduto 
-		O resultado deve ser o total associado com cada status -->
+		O resultado deve ser o total associado com cada status
 	<named-query name="Produto.qtdeDebitosTecnicos">
 		<query>
 
         </query>
 	</named-query>
+	 -->
 </entity-mappings>
