@@ -15,8 +15,8 @@
 	<named-query name="Avaliacao.issuesAcima3Votos">
 		<query>
 		SELECT DISTINCT a FROM Avaliacao a 
-		WHERE 'ISSUE' MEMBER OF a.itensAvaliacao
-		HAVING COUNT(a) > 3
+		JOIN TREAT( a.itensAvaliacao as Issue) i
+		HAVING COUNT(i) > 3
         	 
         </query>
 	</named-query>

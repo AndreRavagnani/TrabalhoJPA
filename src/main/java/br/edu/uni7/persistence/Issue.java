@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TBL_ISSUES")
-@DiscriminatorValue("ISSUE")
+@DiscriminatorValue("IS")
 @PrimaryKeyJoinColumn(name = "FK_ITEM_AVAL")
 public class Issue extends ItemAvaliacao {
 

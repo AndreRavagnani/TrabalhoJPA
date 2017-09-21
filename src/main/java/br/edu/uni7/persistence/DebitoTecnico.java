@@ -10,7 +10,7 @@ import javax.validation.constraints.Min;
 
 @Entity 
 @Table(name="TBL_DEBITOS_TECNICOS")
-@DiscriminatorValue("DEBITO")
+@DiscriminatorValue("DT")
 @PrimaryKeyJoinColumn(name="FK_ITEM_AVAL")
 public class DebitoTecnico extends ItemAvaliacao {
 	
